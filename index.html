@@ -224,8 +224,8 @@
                             <i data-lucide="briefcase" class="w-5 h-5 text-[#78C7C7]"></i>
                         </div>
                         <div>
-                            <h4 class="text-xs font-bold text-slate-800">Leve isso pra prancheta</h4>
-                            <p class="text-[10px] text-slate-500 font-medium mt-0.5">Conheça o material de apoio para visita e registro</p>
+                            <h4 class="text-xs font-bold text-slate-800">SuperKit ACS — Fichas e Checklists</h4>
+                            <p class="text-[10px] text-slate-500 font-medium mt-0.5">Fichas, checklists C1–C7 e calendários para visita</p>
                         </div>
                     </div>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
@@ -452,7 +452,7 @@
     </div>
 
     <script>
-        const KIT_ACS_URL = "https://leothaylor.github.io/kit-operacional-acs-Campanha/?utm_source=radar_vacinal_5a14&utm_medium=ferramenta_gratis&utm_campaign=kit_operacional_acs_radar_5a14"; 
+        const KIT_ACS_URL = "https://pay.hotmart.com/D106253909R?utm_source=radar_vacinal_5a14&utm_medium=ferramenta&utm_campaign=superkit_acs"; 
 
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
@@ -480,14 +480,27 @@
                 { id: "dt_res", name: "dT (Dupla Adulto)", doseLabel: "Atualizar se esquema incompleto" }
             ]},
             { idGroup: "g108", ageMonths: 108, ageLabel: "9 anos", doses: [
-                { id: "hpv_1", name: "HPV", doseLabel: "Dose única" }
+                { id: "hpv_1", name: "HPV (quadrivalente)", doseLabel: "Dose única — CNV 2026 (9 a 14 anos)" }
             ]},
             { idGroup: "g120", ageMonths: 120, ageLabel: "10 anos", doses: [
                 { id: "dengue_1", name: "Dengue/Qdenga", doseLabel: "1ª dose" },
                 { id: "dengue_2", name: "Dengue/Qdenga", doseLabel: "2ª dose (após 3 meses)" }
             ]},
             { idGroup: "g132", ageMonths: 132, ageLabel: "11 anos", doses: [
-                { id: "acwy_1", name: "Meningocócica ACWY", doseLabel: "Dose única / Reforço" }
+                { id: "acwy_1", name: "Meningocócica ACWY", doseLabel: "Dose única / Reforço (11–14 anos)" }
+            ]},
+            { idGroup: "g144", ageMonths: 144, ageLabel: "12 anos", doses: [
+                { id: "hpv_12", name: "HPV (quadrivalente)", doseLabel: "Dose única — se não vacinou aos 9 anos" },
+                { id: "dt_12", name: "dT (Dupla Adulto)", doseLabel: "Atualizar esquema se incompleto" }
+            ]},
+            { idGroup: "g156", ageMonths: 156, ageLabel: "13 anos", doses: [
+                { id: "hpv_13", name: "HPV (quadrivalente)", doseLabel: "Dose única — resgate até 14 anos" },
+                { id: "scr_13", name: "Tríplice Viral SCR", doseLabel: "Verificar 2 doses no histórico" }
+            ]},
+            { idGroup: "g168", ageMonths: 168, ageLabel: "14 anos", doses: [
+                { id: "hpv_14", name: "HPV (quadrivalente)", doseLabel: "Dose única — último ano de rotina PNI" },
+                { id: "acwy_14", name: "Meningocócica ACWY", doseLabel: "Verificar dose se não recebeu 11–13 anos" },
+                { id: "hepb_14", name: "Hepatite B", doseLabel: "Verificar esquema completo (3 doses)" }
             ]}
         ];
         const TOTAL_DOSES = vaccineDatabase.reduce((acc, g) => acc + g.doses.length, 0);
@@ -500,9 +513,9 @@
             { vac: "Varicela", desc: "Protege contra a Catapora. O resgate no SUS é possível apenas até 6 anos, 11 meses e 29 dias." },
             { vac: "Covid-19", desc: "Protege contra formas graves da doença. Avaliar indicação clínica e grupos prioritários atuais." },
             { vac: "dT (Dupla Adulto)", desc: "Protege contra Difteria e Tétano. Atualização de carteira ou reforço a cada 10 anos." },
-            { vac: "HPV", desc: "Protege contra o Papilomavírus Humano, prevenindo câncer de colo de útero e outras complicações." },
-            { vac: "Dengue (Qdenga)", desc: "Protege contra a dengue. O esquema é de 2 doses com 3 meses de intervalo." },
-            { vac: "Meningocócica ACWY", desc: "Protege contra formas graves de meningite bacteriana dos sorogrupos A, C, W e Y." }
+            { vac: "HPV (quadrivalente)", desc: "Protege contra o Papilomavírus Humano (tipos 6, 11, 16 e 18), prevenindo câncer de colo do útero, câncer de garganta e verrugas genitais. CNV 2026: dose única para 9 a 14 anos. Resgate com dose única até 19 anos. Indicador C7." },
+            { vac: "Dengue (Qdenga)", desc: "Protege contra a dengue. Indicada para 10 a 14 anos. Esquema de 2 doses com intervalo de 3 meses. Também disponível para trabalhadores de saúde da APS até 59 anos." },
+            { vac: "Meningocócica ACWY", desc: "Protege contra formas graves de meningite bacteriana dos sorogrupos A, C, W e Y. Indicada entre 11 e 14 anos. CNV 2026: substituiu o reforço de Men C aos 12 meses." }
         ];
 
         document.getElementById('dict-content').innerHTML = dictDatabase.map(d => `
